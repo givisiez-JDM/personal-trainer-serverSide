@@ -1,26 +1,16 @@
 import express from 'express';
-import UserModel from '../models/Users.js';
+import { createUser, deleteUser, getAllUsers, getUser, updateUser } from '../controllers/users.js';
 
 const router = express.Router();
 
-// router.post('/', (req, res) => {
-    
-// })
+router.post('/novo-usuario', createUser)
 
-// router.get('/', (res) => {
-//     UserModel.find({}, (error, result) => {
-//         if (error) {
-//             res.status(404).json({ message: error.message });
-//         } else {
-//             res.json(result)
-//         }
-//     })
-// })
+router.get('/', getAllUsers)
 
-// router.get('/:id')
+router.get('/:id', getUser)
 
-// router.put('/')
+router.patch('/editar-usuario', updateUser)
 
-// router.delete('/')
+router.delete('/deletar-usuario', deleteUser)
 
 export default router;
