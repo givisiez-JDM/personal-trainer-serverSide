@@ -31,7 +31,8 @@ const ClientsSchema = mongoose.Schema({
     },
     personalTrainerId: {
         type: mongoose.SchemaTypes.ObjectId,
-        required: true
+        required: true,
+        ref: "User"
     }
 });
 

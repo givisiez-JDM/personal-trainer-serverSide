@@ -9,7 +9,7 @@ router.get('/', getAllUsers)
 
 router.get('/:id', getUser)
 
-router.patch('/editar-usuario', updateUser)
+router.put('/editar-usuario', updateUser)
 
 router.delete('/deletar-usuario', deleteUser)
 
