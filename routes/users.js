@@ -9,8 +9,8 @@ router.get('/', getAllUsers)
 
 router.get('/:id', getUser)
 
-router.put('/editar-usuario', updateUser)
+router.put('/editar-usuario/:id', updateUser)
 
-router.delete('/deletar-usuario', deleteUser)
+router.delete('/deletar-usuario/:id', deleteUser)
 
 export default router;

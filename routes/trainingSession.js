@@ -9,8 +9,8 @@ router.get('/', getAllTrainingSession)
 
 router.get('/:id', getTrainingSession)
 
-router.patch('/editar-treino', updateTrainingSession)
+router.patch('/editar-treino/:id', updateTrainingSession)
 
-router.delete('/deletar-treino', deleteTrainingSession)
+router.delete('/deletar-treino/:id', deleteTrainingSession)
 
 export default router;

@@ -2,11 +2,10 @@ import ClientModel from '../models/Clients.js';
 
 export const createClient = async (req, res) => {
     try {
-        const client = req.body;
-        const newClient = new ClientModel(client);
-    
+        const newClient = new ClientModel(req.body);
+
         await newClient.save();
-        res.status(200).send(`client created successfully`)   
+        res.status(200).send(`Client created successfully`)
     } catch (err) {
         res.status(409).send({ message: err.message });
     }
@@ -24,9 +23,9 @@ export const getAllClients = async (req, res) => {
 
 export const getClient = async (req, res) => {
     try {
-        const clients = await ClientModel.find();
+        const client = await ClientModel.findById(req.params.id);
 
-        res.status(200).send(clients)
+        res.status(200).send(client)
     } catch (err) {
         res.status(404).send({ message: err.message });
     }
@@ -34,9 +33,10 @@ export const getClient = async (req, res) => {
 
 export const updateClient = async (req, res) => {
     try {
-        const clients = await ClientModel.find();
+        const client = await ClientModel.findOneAndUpdate({_id: req.params.id}, req.body);
 
-        res.status(200).send(clients)
+        await client.save()
+        res.status(200).send(client)
     } catch (err) {
         res.status(404).send({ message: err.message });
     }
@@ -44,9 +44,10 @@ export const updateClient = async (req, res) => {
 
 export const deleteClient = async (req, res) => {
     try {
-        const clients = await ClientModel.find();
+        const client = await ClientModel.findById(req.params.id);
 
-        res.status(200).send(clients)
+        client.deleteOne(client)
+        res.status(200).send("Client deleted successfully")
     } catch (err) {
         res.status(404).send({ message: err.message });
     }

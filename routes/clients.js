@@ -9,8 +9,8 @@ router.get('/', getAllClients)
 
 router.get('/:id', getClient)
 
-router.patch('/editar-cliente', updateClient)
+router.patch('/editar-cliente/:id', updateClient)
 
-router.delete('/', deleteClient)
+router.delete('/deletar-client/:id', deleteClient)
 
 export default router;

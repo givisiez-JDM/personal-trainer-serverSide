@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-const TrainingSchema = mongoose.Schema({
-    date: {
+const PhysicalEvaluationSchema = mongoose.Schema({
+    createdAt: {
         type: Date,
         required: true,
         default: new Date()
@@ -16,11 +16,7 @@ const TrainingSchema = mongoose.Schema({
         required: true,
         ref: "Client"
     },
-    activities: {
-        type: [],
-        required: true
-    }
 });
 
-const TrainingModel = mongoose.model('TrainingSession', TrainingSchema);
-export default TrainingModel;
+const PhysicalEvaluationModel = mongoose.model('PhysicalEvaluation', PhysicalEvaluationSchema);
+export default PhysicalEvaluationModel;
