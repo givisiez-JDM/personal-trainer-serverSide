@@ -3,16 +3,15 @@ import UserModel from '../models/Users.js';
 export const createUser = async (req, res) => {
     try {
         const data = req.body
-        // console.log(data.email)
-        // const checkEmail = checkIfUserExists(data.email)
+        const checkEmail = await UserModel.exists({ email: data.email })
 
-        // if (!checkEmail) {
+        if (!checkEmail) {
             const newUser = new UserModel(data);
             await newUser.save();
             res.status(200).send(`user created successfully`)
-        // } else {
-        //     res.status(409).send(`E-mail cadastrado, tente novamente.`)
-        // }
+        } else {
+            res.status(409).send(`E-mail cadastrado, tente novamente.`)
+        }
     } catch (err) {
         res.status(400).send({ message: err.message });
     }
@@ -64,11 +63,3 @@ export const deleteUser = async (req, res) => {
         res.status(404).send({ message: err.message });
     }
 }
-
-// const checkIfUserExists = async (email) => {
-//     const emailExist = await UserModel.findOne({email})
-
-//     console.log(emailExist)
-//     return emailExist ? true : false;
-
-// }

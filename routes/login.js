@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
         
         const checkPassword = passwordDB === password ? true : false
 
-        if (!checkPassword || !data) {
+        if (!checkPassword) {
             res.status(400).send("E-mail ou senha incorretos, tente novamente");
         } else {
             console.log("Login feito com sucesso!");
