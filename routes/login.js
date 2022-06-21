@@ -7,14 +7,17 @@ router.post('/', async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        const data = await UserModel.find({ "email": email });
+        const data = await UserModel.findOne({ "email": email });
 
-        const checkPassword = data.find(user => user.password === password)
+        const passwordDB = String(data.password)
+        
+        const checkPassword = passwordDB === password ? true : false
 
-        if (!checkPassword) {
-            res.status(400).send("Senha incorreta, tente novamente");
+        if (!checkPassword || !data) {
+            res.status(400).send("E-mail ou senha incorretos, tente novamente");
         } else {
-            res.status(200).end()
+            console.log("Login feito com sucesso!");
+            res.status(200).send(data)
         }
     } catch (err) {
         res.status(400).send({ error: err.message });
