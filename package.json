@@ -1,12 +1,14 @@
 {
-  "name": "server",
+  "name": "mypersonaltrainerserver",
   "version": "1.0.0",
-  "description": "",
+  "description": "Server side of My Personal Trainer Webapp",
+  "engines": {
+    "node": "16.x"
+  },
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js",
-    "heroku-postbuild": "cd clientSide && npm install && npm run build"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
