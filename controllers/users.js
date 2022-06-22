@@ -42,8 +42,12 @@ export const getUser = async (req, res) => {
 
 export const updateUser = async (req, res) => {
     try {
-        const user = await UserModel.findOneAndUpdate({_id: req.params.id}, req.body);
 
+        const reqData = req.body;
+        const hashedPW = await bcrypt.hash(reqData.password, 10)
+        const data = { ...reqData, password: hashedPW }
+        const user = await UserModel.findOneAndUpdate({_id: req.params.id}, data);
+        
         await user.save()
         res.status(200).send(user)
     } catch (err) {
