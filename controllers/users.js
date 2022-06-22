@@ -1,12 +1,15 @@
 import UserModel from '../models/Users.js';
+import bcrypt from "bcrypt"
 
 export const createUser = async (req, res) => {
     try {
         const data = req.body
+        const hashedPW = await bcrypt.hash(data.password, 10)
+        const user = { ...data, password: hashedPW }
         const checkEmail = await UserModel.exists({ email: data.email })
 
         if (!checkEmail) {
-            const newUser = new UserModel(data);
+            const newUser = new UserModel(user);
             await newUser.save();
             res.status(200).send(`user created successfully`)
         } else {

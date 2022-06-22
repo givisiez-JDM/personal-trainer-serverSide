@@ -5,7 +5,7 @@ import userRoutes from './routes/users.js';
 import clientRoutes from './routes/clients.js';
 import loginRoutes from './routes/login.js';
 import trainingRoutes from './routes/trainingSession.js';
-import 'dotenv/config'
+import'dotenv/config'
 
 const app = express();
 app.use(express.json());

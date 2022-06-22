@@ -1,7 +1,7 @@
 {
-  "name": "mypersonaltrainerserver",
+  "name": "personalandtrainerserver",
   "version": "1.0.0",
-  "description": "Server side of My Personal Trainer Webapp",
+  "description": "Server side of Personal & Trainer Webapp",
   "engines": {
     "node": "16.x"
   },
@@ -19,8 +19,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.0",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.16",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0"
   }
