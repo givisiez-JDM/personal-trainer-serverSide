@@ -33,6 +33,10 @@ const ClientsSchema = mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         required: true,
         ref: "User"
+    },
+    personalTrainerName: {
+        type: String,
+        required: true
     }
 });
 

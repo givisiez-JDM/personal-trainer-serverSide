@@ -11,6 +11,17 @@ export const createClient = async (req, res) => {
     }
 }
 
+export const getClientsByTrainerId = async (req, res) => {
+    try {
+        const trainerId = req.params.id
+        const clients = await ClientModel.find({personalTrainerId: trainerId});
+
+        res.status(200).send(clients)
+    } catch (err) {
+        res.status(404).send({ message: err.message });
+    }
+}
+
 export const getAllClients = async (req, res) => {
     try {
         const clients = await ClientModel.find();

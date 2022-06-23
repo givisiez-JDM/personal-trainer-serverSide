@@ -1,11 +1,13 @@
 import express from 'express';
-import { createTrainingSession, deleteTrainingSession, getAllTrainingSession, getTrainingSession, updateTrainingSession } from '../controllers/trainingSession.js';
+import { createTrainingSession, deleteTrainingSession, getAllTrainingSession, getTrainingSession, getTrainingSessionByPersonalId, updateTrainingSession } from '../controllers/trainingSession.js';
 
 const router = express.Router();
 
 router.post('/novo-treino', createTrainingSession)
 
-router.get('/', getAllTrainingSession)
+router.get('/lista', getAllTrainingSession)
+
+router.get('/lista/:id', getTrainingSessionByPersonalId)
 
 router.get('/:id', getTrainingSession)
 

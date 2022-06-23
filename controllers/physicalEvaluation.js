@@ -11,6 +11,17 @@ export const createPhysicalEvaluation = async (req, res) => {
     }
 }
 
+export const getPhysicalEvaluationsByClientId = async (req, res) => {
+    try {
+        const clientId = req.params.id
+        const physicalEvaluations = await PhysicalEvaluationModel.find({clientId: clientId});
+
+        res.status(200).send(physicalEvaluations)
+    } catch (err) {
+        res.status(404).send({ message: err.message });
+    }
+}
+
 export const getAllPhysicalEvaluations = async (req, res) => {
     try {
         const physicalEvaluations = await PhysicalEvaluationModel.find();

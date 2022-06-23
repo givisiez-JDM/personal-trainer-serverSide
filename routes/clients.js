@@ -1,16 +1,18 @@
 import express from 'express';
-import { createClient, getAllClients, getClient, updateClient, deleteClient } from '../controllers/clients.js';
+import { createClient, getClient, updateClient, deleteClient, getClientsByTrainerId, getAllClients } from '../controllers/clients.js';
 
 const router = express.Router();
 
 router.post('/novo-cliente', createClient)
 
-router.get('/', getAllClients)
+router.get('/lista/:id', getClientsByTrainerId)
+
+router.get('/lista', getAllClients)
 
 router.get('/:id', getClient)
 
-router.patch('/editar-cliente/:id', updateClient)
+router.put('/editar-cliente/:id', updateClient)
 
-router.delete('/deletar-client/:id', deleteClient)
+router.delete('/deletar-cliente/:id', deleteClient)
 
 export default router;

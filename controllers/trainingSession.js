@@ -21,6 +21,17 @@ export const getAllTrainingSession = async (req, res) => {
     }
 }
 
+export const getTrainingSessionByPersonalId = async (req, res) => {
+    try {
+        const trainerId = req.params.id
+        const training = await TrainingModel.find({personalTrainerId: trainerId});
+
+        res.status(200).send(training)
+    } catch (err) {
+        res.status(404).send({ message: err.message });
+    }
+}
+
 export const getTrainingSession = async (req, res) => {
     try {
         const training = await TrainingModel.findById(req.params.id);

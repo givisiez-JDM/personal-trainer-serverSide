@@ -1,11 +1,13 @@
 import express from 'express';
-import { createPhysicalEvaluation, getAllPhysicalEvaluations, getPhysicalEvaluation, updatePhysicalEvaluation, deletePhysicalEvaluation } from '../controllers/physicalEvaluation.js';
+import { createPhysicalEvaluation, getPhysicalEvaluationsByClientId, getPhysicalEvaluation, updatePhysicalEvaluation, deletePhysicalEvaluation, getAllPhysicalEvaluations } from '../controllers/physicalEvaluation.js';
 
 const router = express.Router();
 
 router.post('/nova-avaliacao', createPhysicalEvaluation)
 
-router.get('/', getAllPhysicalEvaluations)
+router.get('/lista/:id', getPhysicalEvaluationsByClientId)
+
+router.get('/lista', getAllPhysicalEvaluations)
 
 router.get('/:id', getPhysicalEvaluation)
 
