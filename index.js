@@ -6,6 +6,7 @@ import clientRoutes from './routes/clients.js';
 import loginRoutes from './routes/login.js';
 import trainingRoutes from './routes/trainingSession.js';
 import evaluationRoutes from './routes/physicalEvaluation.js';
+import exerciseRoutes from './routes/exercise.js';
 import'dotenv/config'
 
 const app = express();
@@ -16,6 +17,7 @@ app.use('/login', loginRoutes);
 app.use('/usuarios', userRoutes);
 app.use('/clientes', clientRoutes);
 app.use('/avaliacao', evaluationRoutes);
+app.use('/exercicios', exerciseRoutes);
 app.use('/treinos', trainingRoutes);
 
 const CONNECTION_URL = "mongodb+srv://rafonha:Nqbg9UeBqj2WCa7@tcc.yczzd.mongodb.net/TCCdb?retryWrites=true&w=majority"

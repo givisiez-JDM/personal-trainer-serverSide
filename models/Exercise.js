@@ -5,7 +5,22 @@ const PhysicalActivitySchema = mongoose.Schema({
         type: Date,
         required: true,
         default: new Date()
-    }
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    muscleGroup: {
+        type: String,
+        required: true
+    },
+    valence: {
+        type: String,
+        required: true
+    },
+    equipment: {
+        type: String
+    },
 });
 
 const PhysicalActivityModel = mongoose.model('PhysicalActivity', PhysicalActivitySchema);

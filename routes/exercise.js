@@ -1,16 +1,16 @@
 import express from 'express';
-import { createPhysicalActivity, deletePhysicalActivity, getAllPhysicalActivities, getPhysicalActivity, updatePhysicalActivity } from '../controllers/physicalActivity';
+import { createExercise, getAllExercises, getExercise, updateExercise, deleteExercise } from '../controllers/exercise.js'
 
 const router = express.Router();
 
-router.post('/novo-exercicio', createPhysicalActivity)
+router.post('/novo-exercicio', createExercise)
 
-router.get('/', getAllPhysicalActivities)
+router.get('/', getAllExercises)
 
-router.get('/:id', getPhysicalActivity)
+router.get('/:id', getExercise)
 
-router.patch('/editar-exercicio/:id', updatePhysicalActivity)
+router.put('/editar-exercicio/:id', updateExercise)
 
-router.delete('/deletar-exercicio/:id', deletePhysicalActivity)
+router.delete('/deletar-exercicio/:id', deleteExercise)
 
 export default router;

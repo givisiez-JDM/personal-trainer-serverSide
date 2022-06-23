@@ -1,54 +1,54 @@
-import PhysicalActivityModel from '../models/PhysicalActivity.js';
+import ExerciseModel from '../models/Exercise.js';
 
 
-export const createPhysicalActivity = async (req, res) => {
+export const createExercise = async (req, res) => {
     try {
-        const newPhysicalActivity = new PhysicalActivityModel(req.body);
+        const newExercise = new ExerciseModel(req.body);
 
-        await newPhysicalActivity.save();
-        res.status(200).send(`Physical activity created successfully`)
+        await newExercise.save();
+        res.status(200).send(`Exercise created successfully`)
     } catch (err) {
         res.status(409).send({ message: err.message });
     }
 }
 
-export const getAllPhysicalActivities = async (req, res) => {
+export const getAllExercises = async (req, res) => {
     try {
-        const physicalActivities = await PhysicalActivityModel.find();
+        const exercises = await ExerciseModel.find();
 
-        res.status(200).send(physicalActivities)
+        res.status(200).send(exercises)
     } catch (err) {
         res.status(404).send({ message: err.message });
     }
 }
 
-export const getPhysicalActivity = async (req, res) => {
+export const getExercise = async (req, res) => {
     try {
-        const physicalActivity = await PhysicalActivityModel.findById(req.params.id);
+        const exercise = await ExerciseModel.findById(req.params.id);
 
-        res.status(200).send(physicalActivity)
+        res.status(200).send(exercise)
     } catch (err) {
         res.status(404).send({ message: err.message });
     }
 }
 
-export const updatePhysicalActivity = async (req, res) => {
+export const updateExercise = async (req, res) => {
     try {
-        const physicalActivity = await PhysicalActivityModel.findOneAndUpdate({_id: req.params.id}, req.body);
+        const Exercise = await ExerciseModel.findOneAndUpdate({_id: req.params.id}, req.body);
 
-        await physicalActivity.save()
-        res.status(200).send(physicalActivity)
+        await Exercise.save()
+        res.status(200).send(Exercise)
     } catch (err) {
         res.status(404).send({ message: err.message });
     }
 }
 
-export const deletePhysicalActivity = async (req, res) => {
+export const deleteExercise = async (req, res) => {
     try {
-        const physicalActivity = await PhysicalActivityModel.findById(req.params.id);
+        const Exercise = await ExerciseModel.findById(req.params.id);
 
-        PhysicalActivity.deleteOne(physicalActivity)
-        res.status(200).send("PhysicalActivity deleted successfully")
+        Exercise.deleteOne(Exercise)
+        res.status(200).send("Exercise deleted successfully")
     } catch (err) {
         res.status(404).send({ message: err.message });
     }
