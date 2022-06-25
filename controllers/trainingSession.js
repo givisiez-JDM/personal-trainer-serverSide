@@ -57,7 +57,7 @@ export const deleteTrainingSession = async (req, res) => {
     try {
         const training = await TrainingModel.findById(req.params.id);
 
-        user.deleteOne(training)
+        training.deleteOne(training)
         res.status(200).send("Training session deleted successfully")
     } catch (err) {
         res.status(404).send({ message: err.message });

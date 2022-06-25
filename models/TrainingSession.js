@@ -1,5 +1,36 @@
 import mongoose from "mongoose";
 
+const ExerciseSchema = mongoose.Schema({
+    name: {
+        type: String,
+        required: true    
+    },
+    muscleGroup: {
+        type: String,
+        required: true    
+    },
+    valence: {
+        type: String,
+        required: true    
+    },
+    equipment: {
+        type: String,
+        required: true    
+    },
+    serie: {
+        type: Number,
+        required: true
+    },
+    repetition: {
+        type: Number,
+        required: true
+    },
+    load: {
+        type: Number,
+        required: true
+    }
+})
+
 const TrainingSchema = mongoose.Schema({
     date: {
         type: Date,
@@ -11,15 +42,24 @@ const TrainingSchema = mongoose.Schema({
         required: true,
         ref: "User"
     },
+    personalTrainerName: {
+        type: String,
+        required: true
+    },
     clientId: {
         type: mongoose.SchemaTypes.ObjectId,
         required: true,
         ref: "Client"
     },
-    activities: {
-        type: [],
+    clientName: {
+        type: String,
         required: true
-    }
+    },
+    exercises: {
+        type: [ExerciseSchema],
+        default: undefined
+    },
+    notes: String   
 });
 
 const TrainingModel = mongoose.model('TrainingSession', TrainingSchema);

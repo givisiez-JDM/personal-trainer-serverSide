@@ -11,7 +11,7 @@ router.get('/lista/:id', getTrainingSessionByPersonalId)
 
 router.get('/:id', getTrainingSession)
 
-router.patch('/editar-treino/:id', updateTrainingSession)
+router.put('/editar-treino/:id', updateTrainingSession)
 
 router.delete('/deletar-treino/:id', deleteTrainingSession)
 

@@ -8,7 +8,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,7 @@
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.0",
-    "nodemon": "^2.0.16",
+    "nodemon": "^2.0.18",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0"
   }
