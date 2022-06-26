@@ -12,10 +12,16 @@ const PhysicalEvaluationSchema = mongoose.Schema({
         required: true,
         ref: "User"
     },
+    personalTrainerName: {
+        type: String
+    },
     clientId: {
         type: mongoose.SchemaTypes.ObjectId,
         required: true,
         ref: "Client"
+    },
+    clientName: {
+        type: String
     },
     weight: {
         type: Number,
