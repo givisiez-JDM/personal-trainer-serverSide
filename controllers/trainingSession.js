@@ -11,7 +11,7 @@ export const createTrainingSession = async (req, res) => {
     }
 }
 
-export const getAllTrainingSession = async (req, res) => {
+export const getAllTrainingSessions = async (req, res) => {
     try {
         const training = await TrainingModel.find();
 
@@ -21,10 +21,21 @@ export const getAllTrainingSession = async (req, res) => {
     }
 }
 
-export const getTrainingSessionByPersonalId = async (req, res) => {
+export const getTrainingSessionsByPersonalId = async (req, res) => {
     try {
         const trainerId = req.params.id
         const training = await TrainingModel.find({personalTrainerId: trainerId});
+
+        res.status(200).send(training)
+    } catch (err) {
+        res.status(404).send({ message: err.message });
+    }
+}
+
+export const getTrainingSessionsByClientId = async (req, res) => {
+    try {
+        const clientId = req.params.id
+        const training = await TrainingModel.find({clientId: clientId});
 
         res.status(200).send(training)
     } catch (err) {
