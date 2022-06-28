@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const MeasurementSchema = mongoose.Schema({
+export const MeasurementSchema = mongoose.Schema({
     abdomenMeasure: {
         type: Number,
         required: true

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const FatDataSchema = mongoose.Schema({
+export const FatDataSchema = mongoose.Schema({
     fatSubscapularis: {
         type: Number,
         required: true

@@ -7,9 +7,8 @@ import loginRoutes from './routes/login.js';
 import trainingRoutes from './routes/trainingSession.js';
 import evaluationRoutes from './routes/physicalEvaluation.js';
 import exerciseRoutes from './routes/exercise.js';
-import placeRoutes from './routes/place.js';
 import'dotenv/config'
-import passport from "./passport"
+// import passport from "./passport.js"
 import cookieSession from "cookie-session";
 
 const app = express();
@@ -24,8 +23,8 @@ app.use(
     })
 );
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 app.use('/login', loginRoutes);
 app.use('/usuarios', userRoutes);

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import FatDataModel from "./FatData";
-import MeasurementModel from "./Measurements";
+import { FatDataSchema } from "./FatData.js";
+import { MeasurementSchema } from "./Measurements.js";
 
 const PhysicalEvaluationSchema = mongoose.Schema({
     date: {
@@ -33,12 +33,12 @@ const PhysicalEvaluationSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    Measurements: {
-        type: [MeasurementModel],
+    measurements: {
+        type: MeasurementSchema,
         required: true
     },
     fatData: {
-        type: [FatDataModel],
+        type: FatDataSchema,
         required: true
     },
     notes: {
