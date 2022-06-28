@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
+import FatDataModel from "./FatData";
+import MeasurementModel from "./Measurements";
 
 const PhysicalEvaluationSchema = mongoose.Schema({
-    createdAt: {
+    date: {
         type: Date,
         required: true,
         default: new Date(),
@@ -31,72 +33,12 @@ const PhysicalEvaluationSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    IMC: {
-        type: Number,
+    Measurements: {
+        type: [MeasurementModel],
         required: true
     },
-    abdomenMeasure: {
-        type: Number,
-        required: true
-    },
-    neckMeasure: {
-        type: Number,
-        required: true
-    },
-    chestMeasure: {
-        type: Number,
-        required: true
-    },
-    hipMeasure: {
-        type: Number,
-        required: true
-    },
-    armsMeasure: {
-        type: Number,
-        required: true
-    },
-    forearmsMeasure: {
-        type: Number,
-        required: true
-    },
-    wristsMeasure: {
-        type: Number,
-        required: true
-    },
-    thighMeasure: {
-        type: Number,
-        required: true
-    },
-    calfMeasure: {
-        type: Number,
-        required: true
-    },
-    fatSubscapularis: {
-        type: Number,
-        required: true
-    },
-    fatTriceps: {
-        type: Number,
-        required: true
-    },
-    fatBreastplate: {
-        type: Number,
-        required: true
-    },
-    fatMidAxillary: {
-        type: Number,
-        required: true
-    },
-    fatSuprailiac: {
-        type: Number,
-        required: true
-    },
-    fatAbdominal: {
-        type: Number,
-        required: true
-    },
-    fatMidFemoral: {
-        type: Number,
+    fatData: {
+        type: [FatDataModel],
         required: true
     },
     notes: {
