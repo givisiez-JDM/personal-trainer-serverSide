@@ -7,11 +7,25 @@ import loginRoutes from './routes/login.js';
 import trainingRoutes from './routes/trainingSession.js';
 import evaluationRoutes from './routes/physicalEvaluation.js';
 import exerciseRoutes from './routes/exercise.js';
+import placeRoutes from './routes/place.js';
 import'dotenv/config'
+import passport from "./passport"
+import cookieSession from "cookie-session";
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+app.use(
+    cookieSession({
+        name: "session",
+        keys: ['mypersonaltrainer'],
+        maxAge: 24 * 60 * 60 * 100
+    })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/login', loginRoutes);
 app.use('/usuarios', userRoutes);
@@ -19,6 +33,7 @@ app.use('/clientes', clientRoutes);
 app.use('/avaliacao', evaluationRoutes);
 app.use('/exercicios', exerciseRoutes);
 app.use('/treinos', trainingRoutes);
+app.use('/lugares', placeRoutes);
 
 const CONNECTION_URL = "mongodb+srv://rafonha:Nqbg9UeBqj2WCa7@tcc.yczzd.mongodb.net/TCCdb?retryWrites=true&w=majority"
 const PORT = process.env.PORT || 3001;
