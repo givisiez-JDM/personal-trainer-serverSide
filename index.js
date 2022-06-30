@@ -9,19 +9,19 @@ import evaluationRoutes from './routes/physicalEvaluation.js';
 import exerciseRoutes from './routes/exercise.js';
 import'dotenv/config'
 // import passport from "./passport.js"
-import cookieSession from "cookie-session";
+// import cookieSession from "cookie-session";
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use(
-    cookieSession({
-        name: "session",
-        keys: ['mypersonaltrainer'],
-        maxAge: 24 * 60 * 60 * 100
-    })
-);
+// app.use(
+//     cookieSession({
+//         name: "session",
+//         keys: ['mypersonaltrainer'],
+//         maxAge: 24 * 60 * 60 * 100
+//     })
+// );
 
 // app.use(passport.initialize());
 // app.use(passport.session());

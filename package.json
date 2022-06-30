@@ -1,14 +1,14 @@
 {
   "name": "personalandtrainerserver",
   "version": "1.0.0",
-  "description": "Server side of Personal & Trainer Webapp",
+  "description": "Server side of Personal & Training Webapp",
   "engines": {
     "node": "16.x"
   },
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.0",
+    "mongoose-findorcreate": "^3.0.0",
     "nodemon": "^2.0.18",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0"

@@ -11,7 +11,7 @@ router.get('/lista', getAllPhysicalEvaluations)
 
 router.get('/:id', getPhysicalEvaluation)
 
-router.patch('/editar-avaliacao/:id', updatePhysicalEvaluation)
+router.put('/editar-avaliacao/:id', updatePhysicalEvaluation)
 
 router.delete('/deletar-avaliacao/:id', deletePhysicalEvaluation)
 
